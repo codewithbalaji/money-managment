@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information | Eatscape</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>User Information</h1>
+        <form id="userDataForm" action="/index" method="post">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" value="{{ user_data['full_name'] if user_data else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" value="{{ user_data['email'] if user_data else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="job">Job:</label>
+                <input type="text" id="job" name="job" value="{{ user_data['job'] if user_data else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="monthlyIncome">Monthly Income:</label>
+                <input type="number" id="monthlyIncome" name="monthlyIncome" value="{{ user_data['monthly_income'] if user_data else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="annualIncome">Annual Income:</label>
+                <input type="number" id="annualIncome" name="annualIncome" value="{{ user_data['annual_income'] if user_data else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="savings">Savings:</label>
+                <input type="number" id="savings" name="savings" step="0.01" value="{{ user_data['savings'] if user_data else '' }}" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="form-group">
+            <a href="{{ url_for('user_data') }}" class="btn" id="getDataBtn">Get Data</a>
+        </div>
+        <a href="{{ url_for('expense_tracker') }}">Go to Expense Tracker</a>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

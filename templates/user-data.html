@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data | Eatscape</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>User Data</h1>
+        <div id="noDataMessage" style="display: none;">Please enter the data.</div>
+        <table id="userDataTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Job</th>
+                    <th>Monthly Income</th>
+                    <th>Annual Income</th>
+                    <th>Savings</th>
+                </tr>
+            </thead>
+            <tbody id="userDataTableBody">
+                <!-- User data will be inserted here -->
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button id="saveButton" style="display: none;">Save</button>
+            <button id="sendButton" style="display: none;">Send</button>
+        </div>
+        <a href="{{ url_for('index') }}">Go Back</a>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Assume data is present for demo purposes
+            var dataPresent = true;
+
+            if (dataPresent) {
+                document.getElementById('userDataTable').style.display = 'table';
+                document.getElementById('saveButton').style.display = 'inline-block';
+                document.getElementById('sendButton').style.display = 'inline-block';
+            } else {
+                document.getElementById('noDataMessage').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

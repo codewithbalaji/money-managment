@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Eatscape</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <div class="balance">
+            <h2>Savings Balance: $c<span id="savingsBalance">{{ savings_balance }}</span></h2>
+        </div>
+        <form id="depositForm">
+            <div class="form-group">
+                <label for="depositAmount">Deposit Amount:</label>
+                <input type="number" id="depositAmount" name="depositAmount" step="0.01" required>
+                <button type="submit">Deposit</button>
+            </div>
+        </form>
+        <form id="expenseForm">
+            <div class="form-group">
+                <label for="expenseDate">Expense Date:</label>
+                <input type="date" id="expenseDate" name="expenseDate" required>
+            </div>
+            <div class="form-group">
+                <label for="expenseUsage">Expense Usage:</label>
+                <input type="text" id="expenseUsage" name="expenseUsage" required>
+            </div>
+            <div class="form-group">
+                <label for="expenseAmount">Expense Amount:</label>
+                <input type="number" id="expenseAmount" name="expenseAmount" step="0.01" required>
+                <button type="submit">Add Expense</button>
+            </div>
+        </form>
+        <div class="expenses">
+            <h2>Expenses</h2>
+            <ul id="expenseList">
+                {% for expense in expenses %}
+                <li>{{ expense.date }} - {{ expense.usage }}: ${{ expense.amount }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

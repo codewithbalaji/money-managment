@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: flex-end; /* Align the container to the right */
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide overflow to keep the visual effect tidy */
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background: url('') no-repeat center center;
+    background-size: cover;
+    z-index: 0; /* Behind the form container */
+}
+
+.money-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/b.jpg') repeat; /* Replace with your money falling image URL */
+    background-size: cover;
+    opacity: 0.5;
+    pointer-events: none; /* Ensure this layer does not block interactions */
+    animation: moneyFall 10s infinite linear; /* Animation for money falling effect */
+}
+
+@keyframes moneyFall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+.animated-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: #060606;
+    white-space: nowrap;
+    animation: textAnimation 5s infinite alternate;
+    z-index: 1; /* Ensure this text is above the background effects */
+}
+
+@keyframes textAnimation {
+    0% { opacity: 0.5; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-20px); }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Set a fixed width for the form container */
+    margin-right: 20px; /* Add space to the right of the form container */
+    z-index: 2; /* Ensure the form container is above the image effects */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.user-data {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        justify-content: center; /* Center align on smaller screens */
+        padding: 0; /* Remove padding for smaller screens */
+    }
+
+    .container {
+        width: 90%;
+        margin-right: 0; /* Remove right margin for smaller screens */
+    }
+
+    .image-container {
+        display: none; /* Hide image container on smaller screens */
+    }
+}
